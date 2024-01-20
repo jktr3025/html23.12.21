@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .box{
+            border: 5px solid darkblue;
+            width: 300px;
+            height: 400px;
+            padding: 50px;
+            margin: 100px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .child{
+            width: 50px;
+            height: 50px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="script/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+
+            var w_1 = $(".box").width();      // 내가 지정한박스의 물리적인 크기
+            var w_2 = $(".box").innerWidth(); // 패딩 포함한 크기
+            var w_3 = $(".box").outerWidth(); // 패딩과 보더까지의 크기
+            var h_1 = $(".box").height();
+            var h_2 = $(".box").innerHeight();
+            var h_3 = $(".box").outerHeight();
+                // 박스사이즈:보더 박스 주고 안주고에 따라 값 차이남
+            console.log("w_1 : ", w_1)
+            console.log("w_2 : ", w_2)
+            console.log("w_3 : ", w_3)
+            console.log("h_1 : ", h_1)
+            console.log("h_2 : ", h_2)
+            console.log("h_3 : ", h_3)
+
+            var off = $(".box").offset()
+            console.log("off : ", off)
+
+            var off_t = $(".box").offset().top
+            var off_l = $(".box").offset().left
+            console.log("off_t : ", off_t)
+            console.log("off_l : ", off_l)
+
+
+            var ch_off = $(".child").offset()
+            console.log("ch_off : ", ch_off)      // 전체 바디로부터의 위치
+            var ch_pos = $(".child").position()
+            console.log("ch_pos : ", ch_pos)        //부모로부터의 위치
+
+
+        })//jquery
+    </script>
+</head>
+<body>
+    <div class="box">
+        box1
+        <div class="child"></div>
+    </div>
+</body>
+</html>
